@@ -15,13 +15,16 @@ class ImageManager extends React.Component {
         //ctx.fillRect(10, 10, 55, 50);
     }
 
+  	upload(){
+  		window.alert("Eventually you can upload an image when you click me.")
+  	}
+
     render(){
         return (
-            //<div id='img'>
-              //<canvas ref="myCanvas">
-                <img src={lake} width={500} height={400} mode='fit' position='relative'/>
-              //</canvas>
-            //</div>
+            <div id='imageManager'>
+                <img src={lake} width={500} height={400} mode='fit'/>
+                <button onClick={this.upload.bind(this)} >Upload new image.</button>
+            </div>
         );
     }
 }
