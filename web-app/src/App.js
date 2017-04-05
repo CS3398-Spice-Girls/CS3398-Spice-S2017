@@ -19,8 +19,8 @@ class App extends Component {
   render() {
     return (
     	<div>
-				{this.imageManager}
     		{this.shareButton}
+				{this.imageManager}
     		{this.paletteManager}
     	</div>
     );
