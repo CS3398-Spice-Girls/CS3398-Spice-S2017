@@ -1,6 +1,10 @@
 import lake from './lake.jpg';
 
 var React = require('react');
+var Dropzone = require('react-dropzone');
+
+
+
 
 class ImageManager extends React.Component {
     constructor(props){
@@ -21,6 +25,15 @@ class ImageManager extends React.Component {
 
     render(){
         return (
+            <Dropzone
+                multiple={false}
+                accept="image/*"
+                onDrop={this.onImageDrop.bind(this)}>
+                <p>Drop an image or clock to select a file to uploaf.</p>
+                </Dropzone>
+                
+
+
             <div id='imageManager'>
                 <img src={lake} width={500} height={400} mode='fit'/>
                 <button onClick={this.upload.bind(this)} >Upload new image.</button>
