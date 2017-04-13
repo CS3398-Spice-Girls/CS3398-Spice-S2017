@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 import Swatch from './component/swatch.js';
 import PaletteManager from './component/paletteManager.js';
 import SharingButton from './component/sharingButton.js';
@@ -13,13 +12,19 @@ class App extends Component {
 		this.shareButton = <SharingButton app={this} />;
 		this.imageManager = <ImageManager app={this} />;
 		this.palette = {}
-		this.img = <img src='./lake.jpg' />
 	}
 
   render() {
     return (
     	<div>
-				{this.imageManager}
+    		<div id="header">
+    			{this.shareButton}
+    		</div>
+            <div id="wrapper">
+    		<div id="content">
+                {this.imageManager}
+    		</div>
+            </div>
     		{this.paletteManager}
     	</div>
     );

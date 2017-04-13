@@ -1,6 +1,4 @@
 body {
-  margin: 0;
-  padding: 0;
   font-family: sans-serif;
   background:#333;
 }
@@ -11,12 +9,56 @@ html,body,#root{
 	position: relative;
 }
 
-#palette {
-	/*
-		position:absolute;
-		bottom:0;
-	*/
+html, body, #root, #root>div{
+    height: 100%;
+    padding:0;
+    margin: 0;
+}
+
+#root>div {
+	display:flex;
+	min-height:100%;
+	flex-flow: column nowrap;
+}
+
+#header{
+	background:#222;
 	height:50px;
+	width:100%;
+	/*flex-basis:50px;*/
+}
+
+#header button {
+	background:#333;
+	border: none;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 0 20px;
+	height:34px;
+	margin:8px;
+	float:right;
+	text-decoration: none;
+	text-shadow: rgb(43, 102, 94) 0px -1px 0px;
+}
+
+#wrapper {
+	flex:1;
+	display:flex;
+	flex-direction:column;
+}
+
+#content {
+	flex-grow: 1;
+	overflow-y:scroll;
+}
+
+#palette {
+	height:50px;
+	/*flex-basis: 50px;*/
 	width:100%;
 	margin:0;
 	padding:0;
@@ -31,6 +73,7 @@ html,body,#root{
 	flex-grow:1;
 	margin: 10px 0px 10px 10px;
 }
+
 .swatch:last-child{
 	margin-right:10px;
 }
@@ -71,23 +114,6 @@ html,body,#root{
 	content: 'x';
 }
 
-html, body, #root, #root>div{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-
-    margin: 0;
-}
-
-#root {
-	display:flex;
-	flex-flow: column nowrap;
-}
-
-#palette {
-	flex:none;
-
-}
 #imageManager {
 	flex:auto;
 	overflow:hidden;
