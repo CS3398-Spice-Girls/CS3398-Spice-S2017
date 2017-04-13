@@ -1,8 +1,5 @@
-import lake from './lake.jpg';
-
 var React = require('react');
 var Dropzone = require('react-dropzone');
-var request = require('superagent')
 
 class ImageManager extends React.Component {
 	constructor(props){
@@ -21,11 +18,14 @@ class ImageManager extends React.Component {
 	render(){
 		if (this.state.uploadedFile === '')
 			return (
-				<Dropzone
+				<Dropzone 
+					className="dropzone"
+					activeClassName="dropzone-active"
+					rejectClassName="dropzone-reject"
 					multiple={false}
 					accept="image/*"
 					onDrop={this.onImageDrop.bind(this)}>
-					<p>Drop an image or click to select a file to upload.</p>
+					<p className={"centered"}>Drop an image or click to select a file to upload.</p>
 				</Dropzone>
 				);
 		else

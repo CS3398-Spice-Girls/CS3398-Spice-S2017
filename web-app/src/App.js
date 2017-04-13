@@ -14,8 +14,8 @@ class App extends Component {
 		this.palette = {}
 	}
 
-  render() {
-    return (
+    render() {
+        return (
     	<div>
     		<div id="header">
     			{this.shareButton}
@@ -27,8 +27,8 @@ class App extends Component {
             </div>
     		{this.paletteManager}
     	</div>
-    );
-  }
+        );
+    }
 }
 
 export default App;

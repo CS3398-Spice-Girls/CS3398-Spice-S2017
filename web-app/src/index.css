@@ -4,9 +4,9 @@ body {
 }
 
 html,body,#root{
-	height: 100%;
-	width: 100%;
-	position: relative;
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 
 html, body, #root, #root>div{
@@ -15,72 +15,83 @@ html, body, #root, #root>div{
     margin: 0;
 }
 
+.centered {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
 #root>div {
-	display:flex;
-	min-height:100%;
-	flex-flow: column nowrap;
+  display:flex;
+  min-height:100%;
+  flex-flow: column nowrap;
 }
 
 #header{
-	background:#222;
-	height:50px;
-	width:100%;
-	/*flex-basis:50px;*/
+  background:#222;
+  height:50px;
+  width:100%;
+  /*flex-basis:50px;*/
 }
 
 #header button {
-	background:#333;
-	border: none;
-	display: inline-block;
-	cursor: pointer;
-	color: #ffffff;
-	font-family: Arial;
-	font-size: 15px;
-	font-weight: bold;
-	padding: 0 20px;
-	height:34px;
-	margin:8px;
-	float:right;
-	text-decoration: none;
-	text-shadow: rgb(43, 102, 94) 0px -1px 0px;
+  background:#333;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 0 20px;
+  height:34px;
+  margin:8px;
+  float:right;
+  text-decoration: none;
+  text-shadow: rgb(43, 102, 94) 0px -1px 0px;
 }
 
 #wrapper {
-	flex:1;
-	display:flex;
-	flex-direction:column;
+  flex:1;
+  display:flex;
+  flex-direction:column;
 }
 
 #content {
-	flex-grow: 1;
-	overflow-y:scroll;
+  flex-grow: 1;
+  overflow-y:scroll;
+
+  /* This is required to make the upload
+  window take up the entire screen */
+  position: relative;
 }
 
 #palette {
-	height:50px;
-	/*flex-basis: 50px;*/
-	width:100%;
-	margin:0;
-	padding:0;
-	background:#222;
+  height:50px;
+  /*flex-basis: 50px;*/
+  width:100%;
+  margin:0;
+  padding:0;
+  background:#222;
   display: flex;
 }
 
 .swatch {
-	position:relative;
-	height: 30px;
-	min-width:30px;
-	flex-grow:1;
-	margin: 10px 0px 10px 10px;
+  position:relative;
+  height: 30px;
+  min-width:30px;
+  flex-grow:1;
+  margin: 10px 0px 10px 10px;
 }
 
 .swatch:last-child{
-	margin-right:10px;
+  margin-right:10px;
 }
 
 .swatch:not(:hover) .swatchText,
 .swatch:not(:hover) .closeButton{
-	display:none;
+  display:none;
 }
 
 .closeButton {
@@ -98,31 +109,47 @@ html, body, #root, #root>div{
 }
 
 .swatchText {
-	position:absolute;
-	top:50%;
-	left:50%;
-	font-weight:bold;
-	color:#333;
-	transform: translateY(-50%) translateX(-50%);
+  font-weight:bold;
+  color:#333;
 }
 
 .closeButton:hover{
-	color:#fff;
+  color:#fff;
 }
 
 .closeButton:after {
-	content: 'x';
+  content: 'x';
 }
 
 #imageManager {
-	flex:auto;
-	overflow:hidden;
+  flex:auto;
+  overflow:hidden;
 }
 
 #imageManager img{
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 
-	max-height:100%;
-	width:auto;
+  max-height:100%;
+  width:auto;
+}
+
+#share-button {
+  
+}
+
+.dropzone{ 
+  position: absolute;
+  height:100%;
+  width:100%;
+  margin:0;
+  padding:0;
+}
+
+.dropzone-active {
+  background:#bedc6e;
+}
+
+.dropzone-reject{ 
+  background:#f03335;
 }
