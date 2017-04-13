@@ -12,9 +12,9 @@ class SharingButton extends React.Component{
 
 	render(){
 		return(
-			<div>
+			<div id="copy">
 				<button onClick={this.copy.bind(this)} >Copy</button>
-     		 	</div>
+     	</div>
 		);
 	}
 }

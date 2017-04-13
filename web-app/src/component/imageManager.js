@@ -18,12 +18,13 @@ class ImageManager extends React.Component {
   	upload(){
   		window.alert("Eventually you can upload an image when you click me.")
   	}
+    
+    // <button onClick={this.upload.bind(this)} >Upload new image.</button>
 
     render(){
         return (
             <div id='imageManager'>
-                <img src={lake} width={500} height={400} mode='fit'/>
-                <button onClick={this.upload.bind(this)} >Upload new image.</button>
+                <img src={lake} />
             </div>
         );
     }
