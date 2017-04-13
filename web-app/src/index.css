@@ -5,27 +5,34 @@ body {
   background:#333;
 }
 
+html,body,#root{
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+
 #palette {
-	position:absolute;
-	bottom:0;
+	/*
+		position:absolute;
+		bottom:0;
+	*/
 	height:50px;
 	width:100%;
 	margin:0;
 	padding:0;
 	background:#222;
   display: flex;
-
 }
 
 .swatch {
 	position:relative;
-	height: 40px;
-	min-width:40px;
+	height: 30px;
+	min-width:30px;
 	flex-grow:1;
-	margin: 5px 0px 5px 5px;
+	margin: 10px 0px 10px 10px;
 }
 .swatch:last-child{
-	margin-right:5px;
+	margin-right:10px;
 }
 
 .swatch:not(:hover) .swatchText,
@@ -37,8 +44,9 @@ body {
   color: #111;
   font: 14px/100% arial, sans-serif;
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 0px;
+  width:30px;
+  height: 100%;
   text-decoration: none;
   border:none;
   background:none;
@@ -61,4 +69,34 @@ body {
 
 .closeButton:after {
 	content: 'x';
+}
+
+html, body, #root, #root>div{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+}
+
+#root {
+	display:flex;
+	flex-flow: column nowrap;
+}
+
+#palette {
+	flex:none;
+
+}
+#imageManager {
+	flex:auto;
+	overflow:hidden;
+}
+
+#imageManager img{
+	max-width: 100%;
+	height: auto;
+
+	max-height:100%;
+	width:auto;
 }

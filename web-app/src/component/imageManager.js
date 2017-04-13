@@ -4,9 +4,6 @@ var React = require('react');
 var Dropzone = require('react-dropzone');
 var request = require('superagent')
 
-
-
-
 const CLOUDINARY_UPLOAD_PRESET = 'iieovyvu';
 const CLOUDINARY_UPLOAD_URL ='https://api.cloudinary.com/v1_1/mikeycloud9/upload';
 
@@ -46,11 +43,6 @@ onImageDrop(files) {
     });
   }
 
-
-
-
-
-
     render(){
         return (
             <div>
@@ -73,7 +65,6 @@ onImageDrop(files) {
         </div>}
       </div>
     </div>
-
         );
     }
 }
