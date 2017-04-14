@@ -46,8 +46,7 @@ html, body, #root, #root>div{
   font-weight: bold;
   padding: 0 20px;
   height:34px;
-  margin:8px;
-  float:right;
+  margin:8px;;
   text-decoration: none;
   text-shadow: rgb(43, 102, 94) 0px -1px 0px;
 }
@@ -134,11 +133,19 @@ html, body, #root, #root>div{
   width:auto;
 }
 
-#share-button {
-  
+#share-flyout {
+  float:right;
 }
 
-.dropzone{ 
+#share-flyout:not(:hover) .flyout-button {
+  display:none;
+}
+
+#share-flyout .flyout-button {
+  margin:1px;
+}
+
+.dropzone {
   position: absolute;
   height:100%;
   width:100%;
@@ -150,6 +157,6 @@ html, body, #root, #root>div{
   background:#bedc6e;
 }
 
-.dropzone-reject{ 
+.dropzone-reject { 
   background:#f03335;
 }
