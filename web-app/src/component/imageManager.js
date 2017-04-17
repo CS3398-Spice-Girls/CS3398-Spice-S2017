@@ -3,7 +3,7 @@ var Dropzone = require('react-dropzone');
 
 class ImageManager extends React.Component {
 	constructor(props){
-			super(props)	
+			super(props)
 			this.state ={ uploadedFile: ''}
 	}
 
@@ -18,7 +18,7 @@ class ImageManager extends React.Component {
 	render(){
 		if (this.state.uploadedFile === '')
 			return (
-				<Dropzone 
+				<Dropzone
 					className="dropzone"
 					activeClassName="dropzone-active"
 					rejectClassName="dropzone-reject"
@@ -29,11 +29,19 @@ class ImageManager extends React.Component {
 				</Dropzone>
 				);
 		else
-			return (
-				<div id="imageManager">
-					<img src={ this.state.uploadedFile} />
-				</div>
-			);
+  		return (
+  			<Dropzone
+  				className="dropzone"
+  				activeClassName="dropzone-active"
+  				rejectClassName="dropzone-reject"
+  				multiple={false}
+  				accept="image/*"
+  				onDrop={this.onImageDrop.bind(this)}>
+  			  <div id="imageManager">
+  				  <img src={ this.state.uploadedFile} />
+  			  </div>
+  			</Dropzone>
+  		);
 	}
 }
 
