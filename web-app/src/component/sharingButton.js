@@ -1,5 +1,5 @@
 var React = require('react');
-//var CopyToClipboard = require('react-copy-to-clipboard');
+import PaletteStore from '../data/store.js';
 
 class SharingButton extends React.Component{
 	copyHex(){
@@ -8,7 +8,7 @@ class SharingButton extends React.Component{
 
 	copyRGB(){
 		var RGBValues = []
-		Object.values(this.props.app.palette).forEach((hex) => {
+		Object.values(PaletteStore.palette).forEach((hex) => {
 			RGBValues.push(this.hexToRGB(hex))
 		})
 		console.log(RGBValues);
