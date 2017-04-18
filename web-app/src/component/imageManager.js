@@ -1,18 +1,21 @@
 var React = require('react');
 var Dropzone = require('react-dropzone');
+import Dispatcher from '../data/dispatcher.js';
+import PaletteStore from '../data/store';
 
 class ImageManager extends React.Component {
 	constructor(props){
-			super(props)
-			this.state ={ uploadedFile: ''}
-	}
-
-	getInitialState(){
-		return { uploadedFile: '' }
+		super(props)
+		this.state = {uploadedFile:''}
 	}
 
 	onImageDrop(files) {
-		this.setState({ uploadedFile: URL.createObjectURL(files[0])});
+		Dispatcher.dispatch({
+    	actionName: 'uploadImage',
+    	file: files[0]
+    })
+
+		this.setState({ uploadedFile: PaletteStore.imageUrl });
 	}
 
 	render(){
@@ -38,7 +41,7 @@ class ImageManager extends React.Component {
   				accept="image/*"
   				onDrop={this.onImageDrop.bind(this)}>
   			  <div id="imageManager">
-  				  <img src={ this.state.uploadedFile} />
+  				  <img alt="" src={ this.state.uploadedFile} />
   			  </div>
   			</Dropzone>
   		);

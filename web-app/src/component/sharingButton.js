@@ -2,10 +2,6 @@ var React = require('react');
 //var CopyToClipboard = require('react-copy-to-clipboard');
 
 class SharingButton extends React.Component{
-	constructor(props){
-		super(props);
-	}
-
 	copyHex(){
 		window.prompt("Copy to clipboard", Object.values(this.props.app.palette).join(', '))
 	}
