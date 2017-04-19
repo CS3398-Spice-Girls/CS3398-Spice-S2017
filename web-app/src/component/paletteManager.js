@@ -13,7 +13,7 @@ class PaletteManager extends React.Component {
 				this.addSwatch(urlColors[id]);
 
 		// generate random test colors
-		if (this.props.debug)
+		else if (this.props.debug)
 			while (this.nextID < Math.floor(Math.random()*3+4))
 				this.addSwatch('#' + (Math.random()*0xFFFFFF<<0).toString(16))
 	}
