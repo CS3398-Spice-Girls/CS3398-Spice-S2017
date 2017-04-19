@@ -6,6 +6,11 @@ import PaletteStore from '../data/store'
 class PaletteManager extends React.Component {
 	constructor(props){
 		super(props)
+		//Get info from the URL
+		var urlColors = document.location.hash.split(',');
+		if (urlColors[0] !== '')
+			for (var id in urlColors)
+				this.addSwatch(urlColors[id]);
 
 		// generate random test colors
 		if (this.props.debug)
@@ -51,7 +56,9 @@ class PaletteManager extends React.Component {
 	}
 
 	getPaletteAsString(){
-		return Object.values(PaletteStore.palette).join(',')
+		return Object.keys(PaletteStore.palette).map(function(id){
+			return PaletteStore.palette[id];
+		}).join(',');
 	}
 
 	getPaletteInfo(){
