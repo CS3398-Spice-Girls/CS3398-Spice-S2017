@@ -26,7 +26,7 @@ class SharingButton extends React.Component{
 
 	render(){
 		return(
-			<div id="share-flyout">
+			<div className="flyout" id="share-flyout">
 				<button className="flyout-button" id="copy-rgb" onClick={this.copyRGB.bind(this)}>RGB</button>
 				<button className="flyout-button" id="copy-hex" onClick={this.copyHex.bind(this)}>Hex</button>
 				<button className="flyout-button" id="copy-img">Image</button>
