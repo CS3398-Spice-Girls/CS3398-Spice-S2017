@@ -39,6 +39,7 @@ class ImageManager extends React.Component {
 				rejectClassName="dropzone-reject"
 				multiple={false}
 				accept="image/*"
+				disableClick
 				onDrop={this.onImageDrop.bind(this)}>
 				<div id="imageManager">
 					<img alt="" src={ this.state.uploadedFile} />
