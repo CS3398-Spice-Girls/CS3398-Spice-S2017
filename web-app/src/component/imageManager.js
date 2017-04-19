@@ -9,6 +9,17 @@ class ImageManager extends React.Component {
 		this.state = {uploadedFile:''}
 	}
 
+	componentDidMount() {
+        this.updateCanvas();
+    }
+
+  updateCanvas() {
+        const ctx = this.refs.canvas.getContext('2d').drawImage(this.state.uploadedFile, 0, 0, this.state.uploadedFile.width, this.state.uploadedFile.height);
+        //ctx.fillRect(0,0, 1000, 1000);
+
+
+    }
+
 	onImageDrop(files) {
 		Dispatcher.dispatch({
 		actionName: 'uploadImage',
@@ -42,11 +53,11 @@ class ImageManager extends React.Component {
 				disableClick
 				onDrop={this.onImageDrop.bind(this)}>
 				<div id="imageManager">
-					<img alt="" src={ this.state.uploadedFile} />
+					<canvas ref="canvas"/>
 				</div>
 			</Dropzone>
 		);
 	}
 }
-
+//<img alt="" src={ this.state.uploadedFile} />
 module.exports = ImageManager;

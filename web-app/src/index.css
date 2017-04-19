@@ -125,7 +125,7 @@ html, body, #root, #root>div{
   overflow:hidden;
 }
 
-#imageManager img{
+#imageManager canvas{
   max-width: 100%;
   height: auto;
 
@@ -157,6 +157,6 @@ html, body, #root, #root>div{
   background:#bedc6e;
 }
 
-.dropzone-reject { 
+.dropzone-reject {
   background:#f03335;
 }
