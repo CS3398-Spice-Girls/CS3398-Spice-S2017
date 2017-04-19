@@ -3,7 +3,7 @@ import PaletteStore from '../data/store.js';
 
 class SharingButton extends React.Component{
 	copyHex(){
-		window.prompt("Copy to clipboard", Object.values(this.props.app.palette).join(', '))
+		window.prompt("Copy to clipboard", Object.values(PaletteStore.palette).join(', '))
 	}
 
 	copyRGB(){
