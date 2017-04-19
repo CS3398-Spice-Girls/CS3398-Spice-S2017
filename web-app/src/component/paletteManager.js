@@ -15,24 +15,24 @@ class PaletteManager extends React.Component {
 
 	addSwatch(color){
 		if(!/^#[0-9a-f]{3,6}$/i.test(color))
-      throw(new Error('Invalid color for addSwatch'));
+		throw(new Error('Invalid color for addSwatch'));
 
-    Dispatcher.dispatch({
-    	actionName: 'addSwatch',
-    	color: color
-    })
+	Dispatcher.dispatch({
+		actionName: 'addSwatch',
+		color: color
+	})
 	}
 
 	removeSwatch(key){
 		if(PaletteStore.palette[key] === undefined)
-      throw(new Error('Key doesn\'t exist in palette'));
+		throw(new Error('Key doesn\'t exist in palette'));
 
-    Dispatcher.dispatch({
-    	actionName: 'removeSwatch',
-    	key: key
-    })
+	Dispatcher.dispatch({
+		actionName: 'removeSwatch',
+		key: key
+	})
 
-    this.setState({ palette: PaletteStore.palette })
+	this.setState({ palette: PaletteStore.palette })
 	}
 
 	componentWillMount(){
@@ -51,7 +51,7 @@ class PaletteManager extends React.Component {
 	}
 
 	getPaletteAsString(){
-		return Object.values(PaletteStore.palette).join(', ')
+		return Object.values(PaletteStore.palette).join(',')
 	}
 
 	getPaletteInfo(){
@@ -65,6 +65,7 @@ class PaletteManager extends React.Component {
 				while (Object.keys(this.state.palette).length < 6)
 					this.addSwatch('#' + (Math.random()*0xFFFFFF<<0).toString(16))
 		
+		document.location.hash = this.getPaletteAsString();
 		return(
 			<div id="palette">
 				{

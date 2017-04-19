@@ -11,9 +11,9 @@ class ImageManager extends React.Component {
 
 	onImageDrop(files) {
 		Dispatcher.dispatch({
-    	actionName: 'uploadImage',
-    	file: files[0]
-    })
+		actionName: 'uploadImage',
+		file: files[0]
+	})
 
 		this.setState({ uploadedFile: PaletteStore.imageUrl });
 	}
@@ -32,19 +32,19 @@ class ImageManager extends React.Component {
 				</Dropzone>
 				);
 		else
-  		return (
-  			<Dropzone
-  				className="dropzone"
-  				activeClassName="dropzone-active"
-  				rejectClassName="dropzone-reject"
-  				multiple={false}
-  				accept="image/*"
-  				onDrop={this.onImageDrop.bind(this)}>
-  			  <div id="imageManager">
-  				  <img alt="" src={ this.state.uploadedFile} />
-  			  </div>
-  			</Dropzone>
-  		);
+		return (
+			<Dropzone
+				className="dropzone"
+				activeClassName="dropzone-active"
+				rejectClassName="dropzone-reject"
+				multiple={false}
+				accept="image/*"
+				onDrop={this.onImageDrop.bind(this)}>
+				<div id="imageManager">
+					<img alt="" src={ this.state.uploadedFile} />
+				</div>
+			</Dropzone>
+		);
 	}
 }
 
