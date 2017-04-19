@@ -51,7 +51,9 @@ class PaletteManager extends React.Component {
 	}
 
 	getPaletteAsString(){
-		return Object.values(PaletteStore.palette).join(',')
+		return Object.keys(PaletteStore.palette).map(function(id){
+			return PaletteStore.palette[id];
+		}).join(',');
 	}
 
 	getPaletteInfo(){
