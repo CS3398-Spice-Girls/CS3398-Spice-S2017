@@ -9,13 +9,20 @@ class ImageManager extends React.Component {
 		this.state = {uploadedFile:''}
 	}
 
-	componentDidMount() {
+	componentDidUpdate() {
         this.updateCanvas();
     }
 
   updateCanvas() {
-        const ctx = this.refs.canvas.getContext('2d').drawImage(this.state.uploadedFile, 0, 0, this.state.uploadedFile.width, this.state.uploadedFile.height);
-        //ctx.fillRect(0,0, 1000, 1000);
+        const vas = this.refs.canvas;
+				var img = new Image();
+		      // declare a function to call once the image has loaded
+		      img.onload = function(){
+						vas.width = img.width;
+						vas.height = img.height;
+						vas.getContext('2d').drawImage(img, 0,0,);
+           }
+				img.src = this.state.uploadedFile;
 
 
     }
