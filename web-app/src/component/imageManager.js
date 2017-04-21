@@ -20,7 +20,7 @@ class ImageManager extends React.Component {
 		      img.onload = function(){
 						vas.width = img.width;
 						vas.height = img.height;
-						vas.getContext('2d').drawImage(img, 0,0,);
+						vas.getContext('2d').drawImage(img, 0,0);
            }
 				img.src = this.state.uploadedFile;
 
