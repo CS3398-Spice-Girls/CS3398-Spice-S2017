@@ -133,16 +133,24 @@ html, body, #root, #root>div{
   width:auto;
 }
 
+#imageManager canvas{
+  max-width: 100%;
+  height: auto;
+
+  max-height:100%;
+  width:auto;
+}
+
 #share-flyout {
   float:right;
 }
 
-#share-flyout:not(:hover) .flyout-button {
-  display:none;
+.flyout:not(:hover) .flyout-button {
+  display:none!important;
 }
 
-#share-flyout .flyout-button {
-  margin:1px;
+.flyout .flyout-button {
+  margin:1px!important;
 }
 
 .dropzone {
@@ -157,6 +165,6 @@ html, body, #root, #root>div{
   background:#bedc6e;
 }
 
-.dropzone-reject { 
+.dropzone-reject {
   background:#f03335;
 }

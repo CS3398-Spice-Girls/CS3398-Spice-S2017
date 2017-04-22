@@ -6,33 +6,38 @@ import PaletteStore from '../data/store'
 class PaletteManager extends React.Component {
 	constructor(props){
 		super(props)
+		//Get info from the URL
+		var urlColors = document.location.hash.split(',');
+		if (urlColors[0] !== '')
+			for (var id in urlColors)
+				this.addSwatch(urlColors[id]);
 
 		// generate random test colors
-		if (this.props.debug)
+		else if (this.props.debug)
 			while (this.nextID < Math.floor(Math.random()*3+4))
 				this.addSwatch('#' + (Math.random()*0xFFFFFF<<0).toString(16))
 	}
 
 	addSwatch(color){
 		if(!/^#[0-9a-f]{3,6}$/i.test(color))
-      throw(new Error('Invalid color for addSwatch'));
+		throw(new Error('Invalid color for addSwatch'));
 
-    Dispatcher.dispatch({
-    	actionName: 'addSwatch',
-    	color: color
-    })
+	Dispatcher.dispatch({
+		actionName: 'addSwatch',
+		color: color
+	})
 	}
 
 	removeSwatch(key){
 		if(PaletteStore.palette[key] === undefined)
-      throw(new Error('Key doesn\'t exist in palette'));
+		throw(new Error('Key doesn\'t exist in palette'));
 
-    Dispatcher.dispatch({
-    	actionName: 'removeSwatch',
-    	key: key
-    })
+	Dispatcher.dispatch({
+		actionName: 'removeSwatch',
+		key: key
+	})
 
-    this.setState({ palette: PaletteStore.palette })
+	this.setState({ palette: PaletteStore.palette })
 	}
 
 	componentWillMount(){
@@ -51,7 +56,9 @@ class PaletteManager extends React.Component {
 	}
 
 	getPaletteAsString(){
-		return Object.values(PaletteStore.palette).join(', ')
+		return Object.keys(PaletteStore.palette).map(function(id){
+			return PaletteStore.palette[id];
+		}).join(',');
 	}
 
 	getPaletteInfo(){
@@ -65,6 +72,7 @@ class PaletteManager extends React.Component {
 				while (Object.keys(this.state.palette).length < 6)
 					this.addSwatch('#' + (Math.random()*0xFFFFFF<<0).toString(16))
 		
+		document.location.hash = this.getPaletteAsString();
 		return(
 			<div id="palette">
 				{

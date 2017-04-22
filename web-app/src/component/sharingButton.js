@@ -1,14 +1,14 @@
 var React = require('react');
-//var CopyToClipboard = require('react-copy-to-clipboard');
+import PaletteStore from '../data/store.js';
 
 class SharingButton extends React.Component{
 	copyHex(){
-		window.prompt("Copy to clipboard", Object.values(this.props.app.palette).join(', '))
+		window.prompt("Copy to clipboard", Object.values(PaletteStore.palette).join(', '))
 	}
 
 	copyRGB(){
 		var RGBValues = []
-		Object.values(this.props.app.palette).forEach((hex) => {
+		Object.values(PaletteStore.palette).forEach((hex) => {
 			RGBValues.push(this.hexToRGB(hex))
 		})
 		console.log(RGBValues);
@@ -26,7 +26,7 @@ class SharingButton extends React.Component{
 
 	render(){
 		return(
-			<div id="share-flyout">
+			<div className="flyout" id="share-flyout">
 				<button className="flyout-button" id="copy-rgb" onClick={this.copyRGB.bind(this)}>RGB</button>
 				<button className="flyout-button" id="copy-hex" onClick={this.copyHex.bind(this)}>Hex</button>
 				<button className="flyout-button" id="copy-img">Image</button>
