@@ -1,10 +1,11 @@
+var clusterfck = require('clusterfck');
 module.exports.clusterColors = function(colorSample, numColors){
 
 	var clusters = clusterfck.kmeans(colorSample, numColors);
 
+	var newColors = []
 
-
-	for(var i = 0; i < 3 ; i++){
+	for(var i = 0; i < numColors ; i++){
 		var rAve = 0;
 		var gAve = 0;
 		var bAve = 0;
@@ -14,7 +15,8 @@ module.exports.clusterColors = function(colorSample, numColors){
 			gAve += clusters[i][j][1];
 			bAve += clusters[i][j][2];
 		}
-		console.log([rAve/len, gAve/len, bAve/len]);
+		newColors.push([rAve/len, gAve/len, bAve/len])
 	}
 
+	return newColors;
 }
