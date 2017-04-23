@@ -59,15 +59,20 @@ class ImageManager extends React.Component {
 		var j;
 		
 		for (var i = 0; i < sqrtSamples; i++){
-			//randomX = Math.floor(Math.random() * (rect.right-rect.left));
-			//randomY = Math.floor(Math.random() * (rect.bottom-rect.top));
-			randomX = (rect.left + (rect.width/sqrtSamples)*i);
-			for(j = 0; j < sqrtSamples; j++){
+			randomX = Math.floor(Math.random() * (rect.right-rect.left));
+			randomY = Math.floor(Math.random() * (rect.bottom-rect.top));
+			//randomX = (rect.left + (rect.width/sqrtSamples)*i);
+			//for(j = 0; j < sqrtSamples; j++){
 			
-				randomY = (rect.top +  i * ((rect.bottom-rect.top)/sqrtSamples));	
+				//randomY = (rect.top +  i * ((rect.bottom-rect.top)/sqrtSamples));	
 				color = context.getImageData(randomX,randomY,1,1).data;
 				randomSpots.push([color[0], color[1], color[2]]);
-			}
+
+				context.fillStyle='black';
+				context.fillRect(randomX-2, randomY-2, 4, 4)
+			//}
+
+
 			
 		}
 	
