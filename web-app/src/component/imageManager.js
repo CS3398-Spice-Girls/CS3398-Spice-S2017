@@ -50,24 +50,31 @@ class ImageManager extends React.Component {
 
 	autoGenerate(){
 		var rect = this.refs.canvas.getBoundingClientRect();
-		var randomSpots = [];
+		var samples = 30000;
+		var sqrtSamples = Math.floor(Math.sqrt(samples))
+		var randomSpots = []
 		var randomX;
 		var randomY;
 		var color;
-		var samples = 20000;
-		for (var i = 0; i < samples; i++){
-			randomX = Math.floor(Math.random() * (rect.right-rect.left));
-			randomY = Math.floor(Math.random() * (rect.bottom-rect.top));
-			//randomX = (rect.left + (rect.width/samples)*i);
-			//randomY = (rect.top +  i * ((rect.bottom-rect.top)/samples));
+		var context = this.refs.canvas.getContext('2d');
+		var j;
+		
+		for (var i = 0; i < sqrtSamples; i++){
+			//randomX = Math.floor(Math.random() * (rect.right-rect.left));
+			//randomY = Math.floor(Math.random() * (rect.bottom-rect.top));
+			randomX = (rect.left + (rect.width/sqrtSamples)*i);
+			for(j = 0; j < sqrtSamples; j++){
 			
-			color = this.refs.canvas.getContext('2d').getImageData(randomX,randomY,1,1).data;
-			randomSpots.push([color[0], color[1], color[2]]);
+				randomY = (rect.top +  i * ((rect.bottom-rect.top)/sqrtSamples));	
+				color = context.getImageData(randomX,randomY,1,1).data;
+				randomSpots.push([color[0], color[1], color[2]]);
+			}
+			
 		}
 	
 		Dispatcher.dispatch({
 			'actionName' : 'Generate',
-			palette: mean.clusterColors(randomSpots, 5)
+			palette: mean.clusterColors(randomSpots, PaletteStore.numColors)
 
 		}); 
 		

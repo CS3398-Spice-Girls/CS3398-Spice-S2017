@@ -20,10 +20,16 @@ module.exports.clusterColors = function(colorSample, numColors){
 			gAve += clusters[i][j][1];
 			bAve += clusters[i][j][2];
 		}
+
 		newColors.push([Math.round(rAve/len), 
 						Math.round(gAve/len), 
 						Math.round(bAve/len)]);
 	}
+
+	// sort by dominate colors
+	newColors.sort(function(a, b){
+		return b.length - a.length;
+	});
 
 	return newColors.map(function(color){
 		return "#" + componentToHex(color[0]) 
