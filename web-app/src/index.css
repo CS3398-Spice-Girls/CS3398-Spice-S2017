@@ -22,6 +22,10 @@ html, body, #root, #root>div{
   transform: translateY(-50%) translateX(-50%);
 }
 
+.hidden{
+  display:none;
+}
+
 #root>div {
   display:flex;
   min-height:100%;
@@ -47,7 +51,8 @@ html, body, #root, #root>div{
   font-weight: bold;
   padding: 0 20px;
   height:34px;
-  margin:8px;;
+  margin:8px;
+  margin-right: 0;
   text-decoration: none;
 }
 
