@@ -48,6 +48,11 @@ AppDispatcher.register( function(data){
 			PaletteStore.palette.push(data.color);
 			break;
 
+		case 'Generate':
+			PaletteStore.palette = data.palette;
+			PaletteEmmiter.emit('paletteGenerate');
+			break;
+
 		case 'removeSwatch':
 			delete PaletteStore.palette[data.key]
 			break;

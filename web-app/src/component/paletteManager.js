@@ -23,6 +23,7 @@ class PaletteManager extends React.Component {
 		PaletteEmmiter.on('canvasMouseMove', this.onCanvasMouseMove.bind(this));
 		PaletteEmmiter.on('canvasMouseClick', this.onCanvasMouseClick.bind(this));
 		PaletteEmmiter.on('resetPalette', () => { this.setState({ palette: PaletteStore.palette })})
+		PaletteEmmiter.on('paletteGenerate', () => {this.setState({palette: PaletteStore.palette})})
 	}
 
 	addSwatch(color){

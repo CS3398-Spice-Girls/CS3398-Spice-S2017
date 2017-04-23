@@ -2,11 +2,15 @@ var React = require('react');
 var Dropzone = require('react-dropzone');
 import Dispatcher from '../data/dispatcher.js';
 import PaletteStore from '../data/store';
+import ImageManagerEmmiter from '../data/emmiter';
+var mean = require('../../util/kMeanCluster.js');
 
 class ImageManager extends React.Component {
 	constructor(props){
 		super(props)
 		this.state = {uploadedFile:''}
+
+		ImageManagerEmmiter.on('autoGenerate', this.autoGenerate.bind(this));
 	}
 
 	componentDidUpdate() {
@@ -31,6 +35,8 @@ class ImageManager extends React.Component {
 		img.src = this.state.uploadedFile;
    }
 
+
+
 	onImageDrop(files) {
 		Dispatcher.dispatch({
 			actionName: 'uploadImage',
@@ -41,6 +47,34 @@ class ImageManager extends React.Component {
 			uploadedFile: PaletteStore.imageUrl
 		});
 	}
+
+	autoGenerate(){
+		var rect = this.refs.canvas.getBoundingClientRect();
+		var randomSpots = [];
+		var randomX;
+		var randomY;
+		var color;
+		var samples = 20000;
+		for (var i = 0; i < samples; i++){
+			randomX = Math.floor(Math.random() * (rect.right-rect.left));
+			randomY = Math.floor(Math.random() * (rect.bottom-rect.top));
+			//randomX = (rect.left + (rect.width/samples)*i);
+			//randomY = (rect.top +  i * ((rect.bottom-rect.top)/samples));
+			
+			color = this.refs.canvas.getContext('2d').getImageData(randomX,randomY,1,1).data;
+			randomSpots.push([color[0], color[1], color[2]]);
+		}
+	
+		Dispatcher.dispatch({
+			'actionName' : 'Generate',
+			palette: mean.clusterColors(randomSpots, 5)
+
+		}); 
+		
+		//console.log(mean.clusterColors(randomSpots, 4));
+	}
+
+
 
 	onClick(event) {
 		var rect = this.refs.canvas.getBoundingClientRect();

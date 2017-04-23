@@ -4,6 +4,7 @@ import SharingButton from './component/sharingButton.js';
 // import UploadButton from './component/uploadButton.js';
 import ResetButton from './component/resetButton.js';
 import ImageManager from './component/imageManager.js';
+import AutoGenerateButton from './component/autoGenerateButton.js';
 
 class App extends Component {
 	render() {
@@ -11,6 +12,7 @@ class App extends Component {
 			<div>
 				<div id="header">
 					<ResetButton />
+					<AutoGenerateButton />
 					<SharingButton />
 				</div>
 				<div id="wrapper">
