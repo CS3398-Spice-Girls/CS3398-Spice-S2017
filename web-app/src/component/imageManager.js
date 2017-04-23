@@ -47,7 +47,6 @@ class ImageManager extends React.Component {
 		});
 	}
 
-
 	autoGenerate(){
 		var rect = this.refs.canvas.getBoundingClientRect();
 		var samples = 30000;

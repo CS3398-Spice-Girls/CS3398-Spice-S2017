@@ -9,16 +9,12 @@ class PaletteManager extends React.Component {
 		super(props)
 		//Get info from the URL
 
-		this.state = { bgColor:'rgba(0,0,0,0)', elapsed: 0}
-		var urlColors = document.location.hash.split(',');
-		if (urlColors[0] !== '')
-			for (var id in urlColors)
-				this.addSwatch(urlColors[id]);
-
-		// generate random test colors
-		else if (this.props.debug)
-			while (this.nextID < Math.floor(Math.random()*3+4))
-				this.addSwatch('#' + (Math.random()*0xFFFFFF<<0).toString(16))
+		this.state = {
+			bgColor:'rgba(0,0,0,0)',
+			elapsed: 0,
+			firstMount: true,
+			palette: []
+		}
 
 		PaletteEmmiter.on('canvasMouseMove', this.onCanvasMouseMove.bind(this));
 		PaletteEmmiter.on('canvasMouseClick', this.onCanvasMouseClick.bind(this));
@@ -52,6 +48,19 @@ class PaletteManager extends React.Component {
 	}
 
 	componentWillMount(){
+		if (this.state.firstMount){
+			var urlColors = document.location.hash.split(',');
+			if (urlColors[0] !== '')
+				for (var id in urlColors)
+					this.addSwatch(urlColors[id]);
+			this.setState({firstMount: false})
+		}
+		
+		// generate random test colors
+		if (this.props.debug && PaletteStore.palette.length < 1)
+			while (PaletteStore.palette.length < Math.floor(Math.random()*3+4))
+				this.addSwatch('#' + (Math.random()*0xFFFFFF<<0).toString(16))	
+		
 		this.setState({ palette: PaletteStore.palette })
 	}
 
@@ -98,15 +107,10 @@ class PaletteManager extends React.Component {
 	}
 
 	render(){
-		//Keep it populated for testing
-		if (this.props.debug)
-			if (Object.keys(this.state.palette).length < 2)
-				while (Object.keys(this.state.palette).length < 6)
-					this.addSwatch('#' + (Math.random()*0xFFFFFF<<0).toString(16))
-		
 		document.location.hash = this.getPaletteAsString();
+		
 		var bgColor = 'rgba(' + PaletteStore.mouseColor.join(',') + ')'
-		// console.log('paletteManager', Date.now());
+
 		return(
 			<div style={{backgroundColor: bgColor}} id="palette">
 				{

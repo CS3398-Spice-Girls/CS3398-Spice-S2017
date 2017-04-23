@@ -51,6 +51,7 @@ AppDispatcher.register( function(data){
 		case 'autoCall':
 			PaletteStore.numColors = data.numColors;
 			ImageManagerEmmiter.emit('autoGenerate');
+			break;
 
 		case 'Generate':
 			PaletteStore.palette = data.palette;
@@ -68,6 +69,7 @@ AppDispatcher.register( function(data){
 
 		case 'uploadImage':
 			PaletteStore.imageUrl = URL.createObjectURL(data.file)
+			PaletteEmmiter.emit('imageUploaded')
 			break;
 
 		default:
