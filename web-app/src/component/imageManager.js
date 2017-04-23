@@ -127,7 +127,7 @@ class ImageManager extends React.Component {
 				disableClick
 				onDrop={this.onImageDrop.bind(this)}>
 				<div id="imageManager">
-					<canvas ref="canvas" onMouseMove={this.onMouseMove.bind(this)} onClick={this.onClick.bind(this)} />
+					<canvas ref="canvas" className='centered' onMouseMove={this.onMouseMove.bind(this)} onClick={this.onClick.bind(this)} />
 				</div>
 			</Dropzone>
 		);
