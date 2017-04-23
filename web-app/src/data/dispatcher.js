@@ -1,6 +1,8 @@
 import {Dispatcher} from 'flux';
 import PaletteStore from './store.js'
 import PaletteEmmiter from '../data/emmiter.js'
+import ImageManagerEmmiter from '../data/emmiter.js'
+
 
 var dispatcher = new Dispatcher();
 var dispatchQueue = []
@@ -44,6 +46,15 @@ AppDispatcher.register( function(data){
 
 		case 'addSwatch':
 			PaletteStore.palette.push(data.color);
+			break;
+
+		case 'autoCall':
+			PaletteStore.numColors = data.numColors;
+			ImageManagerEmmiter.emit('autoGenerate');
+
+		case 'Generate':
+			PaletteStore.palette = data.palette;
+			PaletteEmmiter.emit('paletteGenerate');
 			break;
 
 		case 'removeSwatch':

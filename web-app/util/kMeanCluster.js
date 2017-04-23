@@ -1,4 +1,9 @@
 var clusterfck = require('clusterfck');
+
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
+}
 module.exports.clusterColors = function(colorSample, numColors){
 
 	var clusters = clusterfck.kmeans(colorSample, numColors);
@@ -15,8 +20,20 @@ module.exports.clusterColors = function(colorSample, numColors){
 			gAve += clusters[i][j][1];
 			bAve += clusters[i][j][2];
 		}
-		newColors.push([rAve/len, gAve/len, bAve/len])
+
+		newColors.push([Math.round(rAve/len), 
+						Math.round(gAve/len), 
+						Math.round(bAve/len)]);
 	}
 
-	return newColors;
+	// sort by dominate colors
+	newColors.sort(function(a, b){
+		return b.length - a.length;
+	});
+
+	return newColors.map(function(color){
+		return "#" + componentToHex(color[0]) 
+    			   + componentToHex(color[1]) 
+    			   + componentToHex(color[2]);
+	});
 }

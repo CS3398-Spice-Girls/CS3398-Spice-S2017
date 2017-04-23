@@ -145,6 +145,10 @@ html, body, #root, #root>div{
   float:right;
 }
 
+#auto-flyout {
+  float:left;
+}
+
 .flyout:not(:hover) .flyout-button {
   display:none!important;
 }
