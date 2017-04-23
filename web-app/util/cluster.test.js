@@ -18,16 +18,6 @@ it('should return 4 colors', () => {
 	expect(testPalette.length).toBe(4);
 });
 
-it('colors should be valid rgb 0-255', () => {
-	var testPalette = mean.clusterColors(colors, 4);
-	
-	for(var i = 0; i < testPalette.length; i++){
-		expect(testPalette[i].length).toBe(3);
-		for(var j = 0; j < testPalette[i].length; j++){
-			expect(testPalette[i][j]).toBeLessThanOrEqual(255);
-			expect(testPalette[i][j]).toBeGreaterThanOrEqual(0);
-		}
-	}
-});
+
 
 
