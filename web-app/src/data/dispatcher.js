@@ -64,7 +64,9 @@ AppDispatcher.register( function(data){
 
 		case 'resetPalette':
 			PaletteStore.palette = []
+			PaletteStore.imageUrl = ''
 			PaletteEmmiter.emit('resetPalette')
+			//PaletteEmmiter.emit('resetImage')
 			break;
 
 		case 'uploadImage':

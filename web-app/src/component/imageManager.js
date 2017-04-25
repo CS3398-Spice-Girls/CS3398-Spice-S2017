@@ -11,6 +11,7 @@ class ImageManager extends React.Component {
 		this.state = {uploadedFile:''}
 
 		ImageManagerEmmiter.on('autoGenerate', this.autoGenerate.bind(this));
+		ImageManagerEmmiter.on('resetPalette', this.componentWillMount.bind(this));
 	}
 
 	componentDidUpdate() {
