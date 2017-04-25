@@ -40,9 +40,17 @@ class SharingButton extends React.Component{
 			context.fillRect(0,0,image.naturalWidth, image.naturalHeight)
 			context.drawImage(image, 0, 0)
 
+			context.textAlign = 'center';
+			context.strokeStyle = '#333';
+			context.font = '14pt arial';
+			context.lineWidth = 3;
+
 			for (var i=0; i<PaletteStore.palette.length; i++){
 				context.fillStyle = PaletteStore.palette[i]
 				context.fillRect(swatchWidth*i, image.naturalHeight, swatchWidth, swatchHeight)
+				context.fillStyle = '#eee';
+				context.strokeText(PaletteStore.palette[i].toUpperCase(), swatchWidth*(i+.5), image.naturalHeight + .75*swatchHeight);
+				context.fillText(PaletteStore.palette[i].toUpperCase(), swatchWidth*(i+.5), image.naturalHeight + .75*swatchHeight);
 			}
 
 			canvas.toBlob(function(blob){
