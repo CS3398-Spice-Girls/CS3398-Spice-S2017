@@ -95,7 +95,7 @@ html, body, #root, #root>div{
 
 .swatch:not(:hover) .swatchText,
 .swatch:not(:hover) .closeButton{
-  display:none;
+
 }
 
 .closeButton {
@@ -114,7 +114,6 @@ html, body, #root, #root>div{
 
 .swatchText {
   font-weight:bold;
-  color:#333;
 }
 
 .closeButton:hover{
