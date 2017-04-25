@@ -12,7 +12,6 @@ class AutoGenerateButton extends React.Component{
 	}
 
 	enableButton(){
-		console.log('asdfasdf');
 		this.setState({ disabled: PaletteStore.imageUrl.trim().length === 0 })
 	}
 
