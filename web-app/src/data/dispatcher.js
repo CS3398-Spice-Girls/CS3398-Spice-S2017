@@ -88,12 +88,14 @@ AppDispatcher.register( function(data){
 		case 'resetPalette':
 			PaletteStore.palette = []
 			PaletteStore.imageUrl = ''
+			PaletteStore.swapID = -1
 			PaletteEmmiter.emit('resetPalette')
 			//PaletteEmmiter.emit('resetImage')
 			break;
 
 		case 'uploadImage':
 			PaletteStore.imageUrl = URL.createObjectURL(data.file)
+			PaletteStore.swapID = -1
 			PaletteEmmiter.emit('imageUploaded')
 			break;
 

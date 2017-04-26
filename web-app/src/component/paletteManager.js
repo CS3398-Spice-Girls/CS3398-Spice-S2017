@@ -24,6 +24,7 @@ class PaletteManager extends React.Component {
 		PaletteEmmiter.on('swatchDropped', this.updateState.bind(this))
 		PaletteEmmiter.on('swatchAdded', this.updateState.bind(this))
 		PaletteEmmiter.on('swatchRemoved', this.updateState.bind(this))
+		PaletteEmmiter.on('imageUploaded', this.updateState.bind(this))
 	}
 
 	updateState(){
