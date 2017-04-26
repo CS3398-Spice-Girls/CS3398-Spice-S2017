@@ -38,7 +38,7 @@ html, body, #root, #root>div{
 
 #header{
   background:#222;
-  height:50px;
+  /*height:50px;*/
   width:100%;
   position:relative;
 }
@@ -187,19 +187,31 @@ html, body, #root, #root>div{
   margin-left:1px;
 }
 
+@media (max-width:800px){
+  #share-flyout{
+    float:none;
+    margin-left:8px;
+  }
+
+  .flyout-button{
+    display:visible!important;
+  }
+}
+
 #auto-button:disabled{
   background:#252525;
   color:#555;
   outline:none;
 }
 
-.flyout:not(:hover) .flyout-button,
-.flyout:not(:hover) .flyout-input,
-.flyout.disabled .flyout-button,
-.flyout.disabled .flyout-input {
-  display:none!important;
+@media (min-width:800px){
+  .flyout:not(:hover) .flyout-button,
+  .flyout:not(:hover) .flyout-input,
+  .flyout.disabled .flyout-button,
+  .flyout.disabled .flyout-input {
+    display:none!important;
+  }
 }
-
 .flyout .flyout-button {
   margin:1px!important;
 }
