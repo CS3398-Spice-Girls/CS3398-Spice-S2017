@@ -2,7 +2,7 @@
 ----
 ## Web color picker app
 
-[GitHub Page](https://github.com/CS3398-Spice-Girls/CS3398-Spice-S2017)
+[GitHub Page](https://cs3398-spice-girls.github.io/CS3398-Spice-S2017)
 
 [Installation ReadMe](https://github.com/CS3398-Spice-Girls/CS3398-Spice-S2017/blob/develop/web-app/README.md)
 
