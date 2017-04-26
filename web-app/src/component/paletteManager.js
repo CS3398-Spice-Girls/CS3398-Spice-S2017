@@ -10,7 +10,7 @@ class PaletteManager extends React.Component {
 		//Get info from the URL
 
 		this.state = {
-			bgColor:'rgba(0,0,0,0)',
+			bgColor:'rgba(34,34,34)',
 			elapsed: 0,
 			firstMount: true,
 			palette: []
