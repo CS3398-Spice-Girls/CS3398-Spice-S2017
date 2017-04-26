@@ -1,7 +1,8 @@
 var PaletteStore = {
 	palette: [],
 	imageUrl: '',
-	mouseColor: [0,0,0,0],
+	mouseColor: [34,34,34],
+	swapID: -1
 }
 
 module.exports = PaletteStore

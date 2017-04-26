@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+
 body {
-  font-family: sans-serif;
+  font-family: 'Ubuntu';
+  color: #fffeff;
   background:#333;
 }
 
@@ -22,6 +27,10 @@ html, body, #root, #root>div{
   transform: translateY(-50%) translateX(-50%);
 }
 
+.hidden{
+  display:none;
+}
+
 #root>div {
   display:flex;
   min-height:100%;
@@ -32,7 +41,15 @@ html, body, #root, #root>div{
   background:#222;
   height:50px;
   width:100%;
-  /*flex-basis:50px;*/
+  position:relative;
+}
+
+#logo {
+  font: 24px 'Ubuntu', serif;
+  display:inline-block;
+  vertical-align:middle;
+  height:38px;
+  padding:0 20px;
 }
 
 #header button {
@@ -40,15 +57,26 @@ html, body, #root, #root>div{
   border: none;
   outline:none;
   display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
+  color: #fffeff;
+  font-family: 'Ubuntu';
   font-size: 15px;
   font-weight: bold;
   padding: 0 20px;
   height:34px;
-  margin:8px;;
+  margin:8px;
+  margin-right: 0;
   text-decoration: none;
+}
+
+#header button:hover:not(:disabled) {
+  cursor: pointer;
+  color: #333;
+  background: #e8e5e8;
+}
+
+#header-content {
+  max-width:1024px;
+  margin: 0 auto;
 }
 
 #wrapper {
@@ -68,20 +96,30 @@ html, body, #root, #root>div{
 
 #palette {
   height:50px;
-  /*flex-basis: 50px;*/
   width:100%;
   margin:0;
   padding:0;
-  /*background:#222;*/
+  background:#222;
   display: flex;
 }
 
 .swatch {
+  box-sizing:border-box;
   position:relative;
   height: 30px;
   min-width:30px;
   flex-grow:1;
+  border:1px solid #333;
   margin: 10px 0px 10px 10px;
+}
+
+.swatch:hover {
+  box-shadow: 0 0 3px #333;
+}
+
+.swatch.selected {
+  border:2px solid #aaa;
+  box-shadow: 0 0 8px #aaa;
 }
 
 .swatch:last-child{
@@ -147,6 +185,8 @@ html, body, #root, #root>div{
 
 #share-flyout {
   float:right;
+  margin-right:8px;
+  margin-left:1px;
 }
 
 #auto-button:disabled{

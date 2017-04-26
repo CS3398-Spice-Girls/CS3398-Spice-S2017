@@ -12,7 +12,6 @@ class AutoGenerateButton extends React.Component{
 	}
 
 	enableButton(){
-		console.log('asdfasdf');
 		this.setState({ disabled: PaletteStore.imageUrl.trim().length === 0 })
 	}
 
@@ -35,7 +34,6 @@ class AutoGenerateButton extends React.Component{
 		return(
 			<div className={["flyout", (this.state.disabled ? 'disabled' : '')].join(' ')} id="auto-flyout">
 				<button id="auto-button" disabled={this.state.disabled} onClick={this.onClick.bind(this)} >Auto</button>
-
 				<button className="flyout-button" id="decrease" onClick={this.decrease.bind(this)}>-</button>
 				<input className="flyout-input" type="text" value={this.state.count} readOnly contentEditable />
 				<button className="flyout-button" id="increase" onClick={this.increase.bind(this)}>+</button>
