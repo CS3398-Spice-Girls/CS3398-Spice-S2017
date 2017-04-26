@@ -94,6 +94,13 @@ class ImageManager extends React.Component {
 		})
 	}
 
+	onMouseLeave(event) {
+		Dispatcher.dispatch({
+			'actionName': 'canvasMouseMove',
+			color: [34,34,34, 255]
+		})
+	}
+
 	render(){
 		if (this.state.uploadedFile === '')
 			return (
@@ -118,7 +125,7 @@ class ImageManager extends React.Component {
 				disableClick
 				onDrop={this.onImageDrop.bind(this)}>
 				<div id="imageManager">
-					<canvas ref="canvas" className='centered' onMouseMove={this.onMouseMove.bind(this)} onClick={this.onClick.bind(this)} />
+					<canvas ref="canvas" className='centered' onMouseLeave={this.onMouseLeave.bind(this)} onMouseMove={this.onMouseMove.bind(this)} onClick={this.onClick.bind(this)} />
 				</div>
 			</Dropzone>
 		);

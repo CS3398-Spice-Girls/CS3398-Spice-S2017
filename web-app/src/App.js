@@ -11,9 +11,9 @@ class App extends Component {
 		return (
 			<div>
 				<div id="header">
+					<span id="logo">PaletteTown</span>
 					<ResetButton />
 					<AutoGenerateButton />
-					<span id="logo" className="centered">PaletteTown</span>
 					<SharingButton />
 				</div>
 				<div id="wrapper">

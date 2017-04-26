@@ -34,8 +34,6 @@ var AppDispatcher	= {
 }
 
 AppDispatcher.register( function(data){
-	console.log(data.actionName);
-	// console.log(PaletteStore.swapID);
 	switch(data.actionName){
 		case 'canvasMouseMove':
 			PaletteStore.mouseColor = data.color;

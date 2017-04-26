@@ -41,7 +41,16 @@ html, body, #root, #root>div{
 
 #logo {
   color:#81aacd;
-  font: 36px sans;
+  font: 24px sans;
+  display:inline-block;
+  vertical-align:middle;
+  padding:0 8px;
+}
+
+@media (max-width: 500px){
+  #logo{
+    font-size:24px;
+  }
 }
 
 #header button {
@@ -167,6 +176,7 @@ html, body, #root, #root>div{
 
 #share-flyout {
   float:right;
+  margin-right:8px;
 }
 
 #auto-button:disabled{
