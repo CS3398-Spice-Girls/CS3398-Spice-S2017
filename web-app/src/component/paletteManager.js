@@ -18,9 +18,16 @@ class PaletteManager extends React.Component {
 
 		PaletteEmmiter.on('canvasMouseMove', this.onCanvasMouseMove.bind(this));
 		PaletteEmmiter.on('canvasMouseClick', this.onCanvasMouseClick.bind(this));
-		PaletteEmmiter.on('resetPalette', () => { this.setState({ palette: PaletteStore.palette })})
-		PaletteEmmiter.on('paletteGenerate', () => {this.setState({palette: PaletteStore.palette})})
+		PaletteEmmiter.on('resetPalette', this.updateState.bind(this))
+		PaletteEmmiter.on('paletteGenerate', this.updateState.bind(this))
+		PaletteEmmiter.on('swatchSelected', this.updateState.bind(this))
+		PaletteEmmiter.on('swatchDropped', this.updateState.bind(this))
+		PaletteEmmiter.on('swatchAdded', this.updateState.bind(this))
+		PaletteEmmiter.on('swatchRemoved', this.updateState.bind(this))
+	}
 
+	updateState(){
+		this.setState({palette: PaletteStore.palette})
 	}
 
 	addSwatch(color){
@@ -32,7 +39,7 @@ class PaletteManager extends React.Component {
 			color: color
 		})
 
-		this.setState({ palette: PaletteStore.palette })
+		// this.setState({ palette: PaletteStore.palette })
 	}
 
 	removeSwatch(key){
@@ -44,7 +51,7 @@ class PaletteManager extends React.Component {
 			key: key
 		})
 
-		this.setState({ palette: PaletteStore.palette })
+		// this.setState({ palette: PaletteStore.palette })
 	}
 
 	componentWillMount(){
@@ -110,7 +117,6 @@ class PaletteManager extends React.Component {
 		document.location.hash = this.getPaletteAsString();
 		
 		var bgColor = 'rgba(' + PaletteStore.mouseColor.join(',') + ')'
-
 		return(
 			<div style={{backgroundColor: bgColor}} id="palette">
 				{

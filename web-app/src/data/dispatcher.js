@@ -34,6 +34,8 @@ var AppDispatcher	= {
 }
 
 AppDispatcher.register( function(data){
+	console.log(data.actionName);
+	// console.log(PaletteStore.swapID);
 	switch(data.actionName){
 		case 'canvasMouseMove':
 			PaletteStore.mouseColor = data.color;
@@ -46,6 +48,7 @@ AppDispatcher.register( function(data){
 
 		case 'addSwatch':
 			PaletteStore.palette.push(data.color);
+			PaletteEmmiter.emit('swatchAdded')
 			break;
 
 		case 'autoCall':
@@ -59,7 +62,27 @@ AppDispatcher.register( function(data){
 			break;
 
 		case 'removeSwatch':
+			PaletteStore.swapID = -2
 			PaletteStore.palette.splice(data.key, 1)
+			PaletteEmmiter.emit('swatchRemoved')
+			break;
+
+		case 'selectSwatch':
+			if (PaletteStore.swapID === -2){
+				PaletteStore.swapID = -1
+			}else{
+				PaletteStore.swapID = data.id
+				PaletteEmmiter.emit('swatchSelected')
+			}
+			break;
+
+		case 'dropSwatch':
+			var id = PaletteStore.swapID
+			var tempColor = PaletteStore.palette[id]
+			PaletteStore.palette[id] = PaletteStore.palette[data.id]
+			PaletteStore.palette[data.id] = tempColor
+			PaletteStore.swapID = -1
+			PaletteEmmiter.emit('swatchDropped')
 			break;
 
 		case 'resetPalette':

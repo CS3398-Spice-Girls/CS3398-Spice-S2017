@@ -13,6 +13,7 @@ class App extends Component {
 				<div id="header">
 					<ResetButton />
 					<AutoGenerateButton />
+					<span id="logo" className="centered">PaletteTown</span>
 					<SharingButton />
 				</div>
 				<div id="wrapper">

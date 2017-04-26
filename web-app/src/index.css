@@ -36,7 +36,12 @@ html, body, #root, #root>div{
   background:#222;
   height:50px;
   width:100%;
-  /*flex-basis:50px;*/
+  position:relative;
+}
+
+#logo {
+  color:#81aacd;
+  font: 36px sans;
 }
 
 #header button {
@@ -86,7 +91,17 @@ html, body, #root, #root>div{
   height: 30px;
   min-width:30px;
   flex-grow:1;
+  border:1px solid #333;
   margin: 10px 0px 10px 10px;
+}
+
+.swatch:hover {
+  box-shadow: 0 0 3px #333;
+}
+
+.swatch.selected {
+  border:1px solid #eee;
+  box-shadow: 0 0 3px #333;
 }
 
 .swatch:last-child{
