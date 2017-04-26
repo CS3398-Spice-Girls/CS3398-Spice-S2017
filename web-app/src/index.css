@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif');
 
 body {
-  font-family: Arial;
+  font-family: 'Open Sans';
   color: #9FB5C3;
   background:#333;
 }
@@ -46,7 +46,7 @@ html, body, #root, #root>div{
   font: 24px 'Bree Serif', serif;
   display:inline-block;
   vertical-align:middle;
-  height:34px;
+  height:38px;
   padding:0 20px;
 }
 
@@ -56,7 +56,7 @@ html, body, #root, #root>div{
   outline:none;
   display: inline-block;
   color: #9FB5C3;
-  font-family: Arial;
+  font-family: 'Open Sans';
   font-size: 15px;
   font-weight: bold;
   padding: 0 20px;
@@ -70,6 +70,11 @@ html, body, #root, #root>div{
   cursor: pointer;
   color: #333;
   background: #9FB5C3;
+}
+
+#header-content {
+  max-width:1024px;
+  margin: 0 auto;
 }
 
 #wrapper {

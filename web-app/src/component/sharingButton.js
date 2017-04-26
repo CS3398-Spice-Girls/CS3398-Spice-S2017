@@ -74,7 +74,7 @@ class SharingButton extends React.Component{
 			<div className="flyout" id="share-flyout">
 				<button className="flyout-button" id="copy-rgb" onClick={this.copyRGB.bind(this)}>RGB</button>
 				<button className="flyout-button" id="copy-hex" onClick={this.copyHex.bind(this)}>Hex</button>
-				<button className="flyout-button" id="copy-img" onClick={this.downloadImage.bind(this)} download="image.png" >Download Image</button>
+				<button className="flyout-button" id="copy-img" onClick={this.downloadImage.bind(this)} download="image.png" >Image</button>
 				<canvas className="hidden" id="save-canvas" ref="saveCanvas" />
 				<button id="share-button">Share</button>
 			</div>
