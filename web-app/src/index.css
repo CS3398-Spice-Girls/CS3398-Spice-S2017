@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
+
 body {
   font-family: sans-serif;
   background:#333;
@@ -40,17 +42,12 @@ html, body, #root, #root>div{
 }
 
 #logo {
-  color:#81aacd;
-  font: 24px sans;
+  color:#276DB8;
+  font: 24px 'Bree Serif', serif;
   display:inline-block;
   vertical-align:middle;
-  padding:0 8px;
-}
-
-@media (max-width: 500px){
-  #logo{
-    font-size:24px;
-  }
+  height:34px;
+  padding:0 20px;
 }
 
 #header button {
@@ -58,8 +55,7 @@ html, body, #root, #root>div{
   border: none;
   outline:none;
   display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
+  color: #9FB5C3;
   font-family: Arial;
   font-size: 15px;
   font-weight: bold;
@@ -68,6 +64,12 @@ html, body, #root, #root>div{
   margin:8px;
   margin-right: 0;
   text-decoration: none;
+}
+
+#header button:hover:not(:disabled) {
+  cursor: pointer;
+  color: #0B335D;
+  background: #276DB8;
 }
 
 #wrapper {
@@ -96,6 +98,7 @@ html, body, #root, #root>div{
 }
 
 .swatch {
+  box-sizing:border-box;
   position:relative;
   height: 30px;
   min-width:30px;
@@ -109,7 +112,7 @@ html, body, #root, #root>div{
 }
 
 .swatch.selected {
-  border:1px solid #eee;
+  border:3px solid #eee;
   box-shadow: 0 0 3px #333;
 }
 
@@ -177,6 +180,7 @@ html, body, #root, #root>div{
 #share-flyout {
   float:right;
   margin-right:8px;
+  margin-left:1px;
 }
 
 #auto-button:disabled{
